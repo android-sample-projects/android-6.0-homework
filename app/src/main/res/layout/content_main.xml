@@ -17,26 +17,20 @@
         android:layout_height="wrap_content"
         android:text="Login"
         android:id="@+id/btn_login"
+        android:layout_marginTop="45dp"
         android:layout_below="@+id/txtLoginPass"
         android:layout_alignStart="@+id/txtLoginPass"
-        android:layout_marginTop="76dp" />
+        android:layout_alignEnd="@+id/txtLoginPass" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Register"
         android:id="@+id/btn_register"
-        android:layout_alignTop="@+id/btn_login"
-        android:layout_toEndOf="@+id/textView2" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Login"
-        android:id="@+id/textView2"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_below="@+id/btn_login"
+        android:layout_alignEnd="@+id/btn_login"
+        android:layout_toEndOf="@+id/textView3"
+        android:layout_alignStart="@+id/btn_login" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -45,7 +39,6 @@
         android:text="Email"
         android:id="@+id/textView3"
         android:layout_marginTop="66dp"
-        android:layout_below="@+id/textView2"
         android:layout_alignStart="@+id/txtLoginEmail" />
 
     <EditText
@@ -73,7 +66,7 @@
         android:inputType="textPassword"
         android:ems="10"
         android:id="@+id/txtLoginPass"
-        android:layout_centerVertical="true"
+        android:layout_below="@+id/textView4"
         android:layout_alignStart="@+id/textView4" />
 
 </RelativeLayout>
