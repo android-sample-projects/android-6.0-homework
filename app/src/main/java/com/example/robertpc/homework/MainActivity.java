@@ -1,9 +1,9 @@
 package com.example.robertpc.homework;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -41,7 +41,15 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 if(uEmail == null || uPass == null){
-                      Toast.makeText(getApplicationContext(), "You don't have account", Toast.LENGTH_SHORT).show();
+
+                    AlertDialog.Builder alertMessage = new AlertDialog.Builder(MainActivity.this, R.style.MyAlertDialogStyle);
+                    alertMessage.setTitle("Oop !")
+                            .setMessage("You don't have account")
+                            .setNegativeButton("Close", null)
+                            .setCancelable(false)
+                            .create();
+                    alertMessage.show();
+
                 }else if(email.getText().toString().matches("")) {
                     Toast.makeText(getApplicationContext(), "Email is empty", Toast.LENGTH_SHORT).show();
                 }else if(pass.getText().toString().matches("")){
@@ -54,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
                     finish();
                     Intent in = new Intent(MainActivity.this, HomeActivity.class);
                     startActivity(in);
+
                 }
 
             }
@@ -66,6 +75,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent in = new Intent(MainActivity.this, RegisterActivity.class);
                 startActivity(in);
+                overridePendingTransition(R.anim.left_to_right, R.anim.right_to_left);
             }
         });
 
@@ -73,8 +83,7 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+               Toast.makeText(getApplicationContext(), "clicked", Toast.LENGTH_SHORT).show();
             }
         });
     }

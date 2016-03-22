@@ -1,15 +1,14 @@
 package com.example.robertpc.homework;
 
+import android.app.AlertDialog;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.text.Editable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 public class RegisterActivity extends AppCompatActivity {
@@ -48,13 +47,26 @@ public class RegisterActivity extends AppCompatActivity {
                 String uPass = tPass.getText().toString().trim();
                 String uCon = tConfirm.getText().toString().trim();
 
+                AlertDialog.Builder alertMessage = new AlertDialog.Builder(RegisterActivity.this, R.style.MyAlertDialogStyle);
+
                 if(uEmail.matches("") || uPass.matches("") || uCon.matches("")){
 
-                   Toast.makeText(getApplicationContext(), "Please fill all field! ", Toast.LENGTH_SHORT).show();
+
+                    alertMessage.setTitle("Oop !")
+                            .setMessage("Please fill all field")
+                            .setNegativeButton("Close", null)
+                            .setCancelable(false)
+                            .create();
+                    alertMessage.show();
 
                 }else if(!uPass.equals(uCon)){
 
-                    Toast.makeText(getApplicationContext(), "Confirm not matches", Toast.LENGTH_SHORT).show();
+                    alertMessage.setTitle("Oop !")
+                            .setMessage("Confirm not matches")
+                            .setNegativeButton("Close", null)
+                            .setCancelable(false)
+                            .create();
+                    alertMessage.show();
 
                 }else {
 
@@ -69,6 +81,12 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.left_to_right, R.anim.right_to_left);
     }
 
 }
