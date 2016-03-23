@@ -29,7 +29,7 @@
         android:ems="10"
         android:id="@+id/editTxtEmail"
         android:layout_below="@+id/txtEmail"
-        android:layout_alignStart="@+id/textView6" />
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -37,10 +37,9 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Password"
         android:id="@+id/textView6"
-        android:layout_marginTop="34dp"
+        android:layout_marginTop="35dp"
         android:layout_below="@+id/editTxtEmail"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="78dp" />
+        android:layout_alignStart="@+id/editTxtEmail" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -80,4 +79,5 @@
         android:layout_marginTop="25dp"
         android:layout_alignEnd="@+id/editTxtConfim"
         android:layout_alignStart="@+id/editTxtConfim" />
+
 </RelativeLayout>

@@ -17,15 +17,14 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <!-- DialogBox theme -->
     <style name="MyAlertDialogStyle" parent="Theme.AppCompat.Light.Dialog.Alert">
-
         <!-- Used for the buttons -->
-        <item name="colorAccent">#000</item>
+        <item name="colorAccent">@color/colorAccentDialog</item>
         <!-- Used for the title and text -->
         <item name="android:textColorPrimary">@color/colorAccent</item>
         <!-- Used for the background -->
-        <item name="android:background">#FFF</item>
-
+        <item name="android:background">@color/colorBackgroundDialog</item>
     </style>
 
 </resources>

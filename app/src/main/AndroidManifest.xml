@@ -10,7 +10,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name"
+            android:label="Login"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,7 +20,7 @@
         </activity>
         <activity
             android:name=".RegisterActivity"
-            android:label="@string/title_activity_register"
+            android:label="Register"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <!-- Parent activity meta-data to support 4.0 and lower -->
@@ -30,7 +30,7 @@
 
         <activity
             android:name=".HomeActivity"
-            android:label="@string/title_activity_home"
+            android:label="Home"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

@@ -34,13 +34,15 @@ public class MainActivity extends AppCompatActivity {
             String uEmail = user.getEmail();
             String uPass = user.getPassword();
 
+            AlertDialog.Builder alertMessage = new AlertDialog.Builder(MainActivity.this, R.style.MyAlertDialogStyle);
+
             @Override
             public void onClick(View v) {
 
                 if(uEmail == null || uPass == null){
 
-                    AlertDialog.Builder alertMessage = new AlertDialog.Builder(MainActivity.this, R.style.MyAlertDialogStyle);
-                    alertMessage.setTitle("Oop !")
+                    alertMessage.setIcon(R.drawable.ic_warning_24dp)
+                            .setTitle("Oop")
                             .setMessage("You don't have account")
                             .setNegativeButton("Close", null)
                             .setCancelable(false)
@@ -48,13 +50,42 @@ public class MainActivity extends AppCompatActivity {
                     alertMessage.show();
 
                 }else if(email.getText().toString().matches("")) {
-                    Toast.makeText(getApplicationContext(), "Email is empty", Toast.LENGTH_SHORT).show();
+
+                    alertMessage.setIcon(R.drawable.ic_warning_24dp)
+                            .setTitle("Oop")
+                            .setMessage("Please input your Email")
+                            .setNegativeButton("Close", null)
+                            .setCancelable(false)
+                            .create();
+                    alertMessage.show();
+
                 }else if(pass.getText().toString().matches("")){
-                    Toast.makeText(getApplicationContext(), "Password is empty", Toast.LENGTH_SHORT).show();
+
+                    alertMessage.setTitle("Oop !")
+                            .setMessage("Please input your Password")
+                            .setNegativeButton("Close", null)
+                            .setCancelable(false)
+                            .create();
+                    alertMessage.show();
+
                 }else if(!uEmail.equals(email.getText().toString())) {
-                    Toast.makeText(getApplicationContext(), "Email not Exist", Toast.LENGTH_SHORT).show();
+
+                    alertMessage.setTitle("Oop !")
+                            .setMessage("Email is incorrect")
+                            .setNegativeButton("Close", null)
+                            .setCancelable(false)
+                            .create();
+                    alertMessage.show();
+
                 }else if(!uPass.equals(pass.getText().toString())) {
-                    Toast.makeText(getApplicationContext(), "Password is incorrect", Toast.LENGTH_SHORT).show();
+
+                    alertMessage.setTitle("Oop !")
+                            .setMessage("Password is incorrect \n     Please Try Again")
+                            .setNegativeButton("Close", null)
+                            .setCancelable(false)
+                            .create();
+                    alertMessage.show();
+
                 }else{
                     finish();
                     Intent in = new Intent(MainActivity.this, HomeActivity.class);

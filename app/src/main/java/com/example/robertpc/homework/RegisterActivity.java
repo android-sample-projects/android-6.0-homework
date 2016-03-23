@@ -42,8 +42,9 @@ public class RegisterActivity extends AppCompatActivity {
                 if(tEmail.getText().toString().matches("") || uPass.matches("") || uCon.matches("")){
 
 
-                    alertMessage.setTitle("Oop !")
-                            .setMessage("Please fill all field")
+                    alertMessage.setIcon(R.drawable.ic_warning_24dp)
+                            .setTitle("Oop")
+                            .setMessage("Please fill all the fields")
                             .setNegativeButton("Close", null)
                             .setCancelable(false)
                             .create();
@@ -63,7 +64,13 @@ public class RegisterActivity extends AppCompatActivity {
                     User user = new User();
                     user.setEmail(tEmail.getText().toString());
                     user.setPassword(uPass);
-                    Toast.makeText(getApplicationContext(), "Saved! " + user.getEmail(), Toast.LENGTH_SHORT).show();
+
+                    alertMessage.setTitle("Congratulation !")
+                            .setMessage("Your account has been created")
+                            .setNegativeButton("OK", null)
+                            .setCancelable(false)
+                            .create();
+                    alertMessage.show();
 
                 }
 
