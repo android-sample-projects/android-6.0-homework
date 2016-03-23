@@ -4,6 +4,8 @@ import android.app.AlertDialog;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -34,12 +36,13 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                String email = tEmail.getText().toString().trim();
                 String uPass = tPass.getText().toString().trim();
                 String uCon = tConfirm.getText().toString().trim();
 
                 AlertDialog.Builder alertMessage = new AlertDialog.Builder(RegisterActivity.this, R.style.MyAlertDialogStyle);
 
-                if(tEmail.getText().toString().matches("") || uPass.matches("") || uCon.matches("")){
+                if(email.matches("") || uPass.matches("") || uCon.matches("")) {
 
 
                     alertMessage.setIcon(R.drawable.ic_warning_24dp)
