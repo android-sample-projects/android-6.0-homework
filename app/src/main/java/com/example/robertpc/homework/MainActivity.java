@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
     EditText email;
     EditText pass;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,10 +30,9 @@ public class MainActivity extends AppCompatActivity {
         // Login Button
         btnLogin = (Button) findViewById(R.id.btn_login);
         btnLogin.setOnClickListener(new View.OnClickListener() {
-
-            User user = new User();
-            String uEmail = user.getEmail();
-            String uPass = user.getPassword();
+            
+            String uEmail = (String) getIntent().getSerializableExtra("email");
+            String uPass = (String) getIntent().getSerializableExtra("pass");
 
             AlertDialog.Builder alertMessage = new AlertDialog.Builder(MainActivity.this, R.style.MyAlertDialogStyle);
 

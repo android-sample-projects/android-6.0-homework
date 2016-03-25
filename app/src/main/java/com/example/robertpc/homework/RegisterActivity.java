@@ -1,6 +1,7 @@
 package com.example.robertpc.homework;
 
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -36,13 +37,13 @@ public class RegisterActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                String email = tEmail.getText().toString().trim();
+                String uEmail = tEmail.getText().toString().trim();
                 String uPass = tPass.getText().toString().trim();
                 String uCon = tConfirm.getText().toString().trim();
 
                 AlertDialog.Builder alertMessage = new AlertDialog.Builder(RegisterActivity.this, R.style.MyAlertDialogStyle);
 
-                if(email.matches("") || uPass.matches("") || uCon.matches("")) {
+                if(uEmail.matches("") || uPass.matches("") || uCon.matches("")) {
 
 
                     alertMessage.setIcon(R.drawable.ic_warning_24dp)
@@ -65,16 +66,13 @@ public class RegisterActivity extends AppCompatActivity {
                 }else {
 
                     User user = new User();
-                    user.setEmail(tEmail.getText().toString());
+                    user.setEmail(uEmail);
                     user.setPassword(uPass);
 
-                    alertMessage.setTitle("Congratulation !")
-                            .setMessage("Your account has been created")
-                            .setNegativeButton("OK", null)
-                            .setCancelable(false)
-                            .create();
-                    alertMessage.show();
-
+                    Intent in = new Intent(RegisterActivity.this, MainActivity.class);
+                    in.putExtra("email", user.getEmail());
+                    in.putExtra("pass", user.getPassword());
+                    startActivity(in);
                 }
 
             }

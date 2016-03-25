@@ -1,11 +1,13 @@
 package com.example.robertpc.homework;
 
+import java.io.Serializable;
+
 /**
  * Created by Robert PC on 3/21/2016.
  */
-public class User {
-    private static String email;
-    private static String password;
+public class User implements Serializable {
+    private String email;
+    private String password;
 
     protected User(){}
 
