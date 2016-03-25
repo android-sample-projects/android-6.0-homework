@@ -1,5 +1,5 @@
 # android-6.0-homework
-<h3>Login & Register without DB</h3>
+<h3>Login & Register Using Serializable No DB</h3>
 <p>This is my Android Homework at Norton University.</p>
 <h4>Teacher: Oum SaoKosal</h4>
 <h4>Group: E1</h4>
