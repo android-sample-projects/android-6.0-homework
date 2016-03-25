@@ -30,7 +30,8 @@ public class MainActivity extends AppCompatActivity {
         // Login Button
         btnLogin = (Button) findViewById(R.id.btn_login);
         btnLogin.setOnClickListener(new View.OnClickListener() {
-            
+
+            // Get Data From RegisterActivity
             String uEmail = (String) getIntent().getSerializableExtra("email");
             String uPass = (String) getIntent().getSerializableExtra("pass");
 
