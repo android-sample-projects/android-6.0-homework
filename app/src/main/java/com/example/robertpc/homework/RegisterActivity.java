@@ -62,14 +62,13 @@ public class RegisterActivity extends AppCompatActivity {
 
                 }else {
 
-                    User user = new User();
+                    Intent in = new Intent(RegisterActivity.this, MainActivity.class);
 
+                    User user = new User();
                     user.setEmail(uEmail);
                     user.setPassword(uPass);
 
-                    Intent in = new Intent(RegisterActivity.this, MainActivity.class);
-                    in.putExtra("email", user.getEmail());
-                    in.putExtra("pass", user.getPassword());
+                    in.putExtra("user", user);
                     startActivity(in);
                 }
 

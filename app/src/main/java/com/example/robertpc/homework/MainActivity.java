@@ -8,6 +8,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
     Button btnLogin;
@@ -30,67 +31,69 @@ public class MainActivity extends AppCompatActivity {
         btnLogin = (Button) findViewById(R.id.btn_login);
         btnLogin.setOnClickListener(new View.OnClickListener() {
 
-            // Get Data From RegisterActivity
-            String uEmail = (String) getIntent().getSerializableExtra("email");
-            String uPass = (String) getIntent().getSerializableExtra("pass");
-
             AlertDialog.Builder alertMessage = new AlertDialog.Builder(MainActivity.this, R.style.MyAlertDialogStyle);
 
             @Override
             public void onClick(View v) {
+                User user = (User) getIntent().getSerializableExtra("user");
 
-                if(uEmail == null || uPass == null){
+                if(user != null){
+                    String uEmail = user.getEmail();
+                    String uPass = user.getPassword();
 
-                    alertMessage.setIcon(R.drawable.ic_warning_24dp)
-                            .setTitle("Oop")
-                            .setMessage("You don't have account")
-                            .setNegativeButton("Close", null)
-                            .setCancelable(false)
-                            .create();
-                    alertMessage.show();
+                    if(uEmail == null || uPass == null){
 
-                }else if(email.getText().toString().matches("")) {
+                        alertMessage.setIcon(R.drawable.ic_warning_24dp)
+                                .setTitle("Oop")
+                                .setMessage("You don't have account")
+                                .setNegativeButton("Close", null)
+                                .setCancelable(false)
+                                .create();
+                        alertMessage.show();
 
-                    alertMessage.setIcon(R.drawable.ic_warning_24dp)
-                            .setTitle("Oop")
-                            .setMessage("Please input your Email")
-                            .setNegativeButton("Close", null)
-                            .setCancelable(false)
-                            .create();
-                    alertMessage.show();
+                    }else if(email.getText().toString().matches("")) {
 
-                }else if(pass.getText().toString().matches("")){
+                        alertMessage.setIcon(R.drawable.ic_warning_24dp)
+                                .setTitle("Oop")
+                                .setMessage("Please input your Email")
+                                .setNegativeButton("Close", null)
+                                .setCancelable(false)
+                                .create();
+                        alertMessage.show();
 
-                    alertMessage.setTitle("Oop !")
-                            .setMessage("Please input your Password")
-                            .setNegativeButton("Close", null)
-                            .setCancelable(false)
-                            .create();
-                    alertMessage.show();
+                    }else if(pass.getText().toString().matches("")){
 
-                }else if(!uEmail.equals(email.getText().toString())) {
+                        alertMessage.setTitle("Oop !")
+                                .setMessage("Please input your Password")
+                                .setNegativeButton("Close", null)
+                                .setCancelable(false)
+                                .create();
+                        alertMessage.show();
 
-                    alertMessage.setTitle("Oop !")
-                            .setMessage("Email is incorrect")
-                            .setNegativeButton("Close", null)
-                            .setCancelable(false)
-                            .create();
-                    alertMessage.show();
+                    }else if(!uEmail.equals(email.getText().toString())) {
 
-                }else if(!uPass.equals(pass.getText().toString())) {
+                        alertMessage.setTitle("Oop !")
+                                .setMessage("Email is incorrect")
+                                .setNegativeButton("Close", null)
+                                .setCancelable(false)
+                                .create();
+                        alertMessage.show();
 
-                    alertMessage.setTitle("Oop !")
-                            .setMessage("Password is incorrect \n     Please Try Again")
-                            .setNegativeButton("Close", null)
-                            .setCancelable(false)
-                            .create();
-                    alertMessage.show();
+                    }else if(!uPass.equals(pass.getText().toString())) {
 
-                }else{
-                    finish();
-                    Intent in = new Intent(MainActivity.this, HomeActivity.class);
-                    startActivity(in);
+                        alertMessage.setTitle("Oop !")
+                                .setMessage("Password is incorrect \n     Please Try Again")
+                                .setNegativeButton("Close", null)
+                                .setCancelable(false)
+                                .create();
+                        alertMessage.show();
 
+                    }else{
+                        finish();
+                        Intent in = new Intent(MainActivity.this, HomeActivity.class);
+                        startActivity(in);
+
+                    }
                 }
 
             }
